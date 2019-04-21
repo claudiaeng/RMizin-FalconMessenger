@@ -1,0 +1,6 @@
+module Pods_Pigeon_project {
+  umbrella header "Pods-Pigeon-project-umbrella.h"
+
+  export *
+  module * { export * }
+}
