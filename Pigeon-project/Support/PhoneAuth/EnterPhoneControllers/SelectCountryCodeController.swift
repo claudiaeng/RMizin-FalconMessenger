@@ -29,8 +29,12 @@ class SelectCountryCodeController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureView()
+
     configureSearchBar()
     configureTableView()
+    self.navigationController?.navigationBar.titleTextAttributes =
+        [NSAttributedString.Key.foregroundColor: UIColor.black,
+         NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 15)!]
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -44,8 +48,9 @@ class SelectCountryCodeController: UITableViewController {
   }
   
   fileprivate func configureView() {
-    title = "Select your country"
+    title = "Select Country"
     view.backgroundColor = ThemeManager.currentTheme().generalBackgroundColor
+
   }
   
   fileprivate func configureSearchBar() {
@@ -55,8 +60,11 @@ class SelectCountryCodeController: UITableViewController {
     searchBar.backgroundColor = ThemeManager.currentTheme().generalBackgroundColor
     searchBar.keyboardAppearance = ThemeManager.currentTheme().keyboardAppearance
     searchBar.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
-  }
-  
+    searchBar.change(textFont: UIFont(name: "Avenir-Book", size: 15))
+    
+
+    }
+    
   fileprivate func configureTableView() {
     tableView.backgroundColor = ThemeManager.currentTheme().generalBackgroundColor
     tableView.indicatorStyle = ThemeManager.currentTheme().scrollBarStyle
@@ -86,7 +94,7 @@ extension SelectCountryCodeController {
     
     let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ?? UITableViewCell(style: .default, reuseIdentifier: identifier)
     cell.backgroundColor = ThemeManager.currentTheme().generalBackgroundColor
-    cell.textLabel?.font = UIFont.systemFont(ofSize: 18)
+    cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 15)
     
     let countryName = filteredCountries[indexPath.row]["name"]!
     let countryDial = " " + filteredCountries[indexPath.row]["dial_code"]!
@@ -155,4 +163,18 @@ extension SelectCountryCodeController {
       view.endEditing(true)
     }
   }
+}
+
+extension UISearchBar {
+    
+    func change(textFont : UIFont?) {
+        
+        for view : UIView in (self.subviews[0]).subviews {
+            
+            if let textField = view as? UITextField {
+                textField.font = textFont
+            }
+        }
+    }
+    
 }
