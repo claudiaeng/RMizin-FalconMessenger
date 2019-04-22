@@ -15,9 +15,9 @@ class EnterPhoneNumberContainerView: UIView {
     let title = UILabel()
     title.translatesAutoresizingMaskIntoConstraints = false
     title.textAlignment = .center
-    title.text = "Phone number"
+    title.text = "Phone Number"
     title.textColor = ThemeManager.currentTheme().generalTitleColor
-    title.font = UIFont.systemFont(ofSize: 32)
+    title.font = UIFont(name: "Didot", size: 30)
     title.sizeToFit()
     
     return title
@@ -29,7 +29,7 @@ class EnterPhoneNumberContainerView: UIView {
     instructions.textAlignment = .center
     instructions.numberOfLines = 2
     instructions.textColor = ThemeManager.currentTheme().generalTitleColor
-    instructions.font = UIFont.systemFont(ofSize: 18)
+    instructions.font = UIFont(name: "Avenir-Book", size: 15)
     instructions.sizeToFit()
 
     return instructions
@@ -46,7 +46,7 @@ class EnterPhoneNumberContainerView: UIView {
     selectCountry.backgroundColor = ThemeManager.currentTheme().controlButtonsColor
     selectCountry.layer.cornerRadius = 25
 		selectCountry.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10.0, bottom: 0.0, right: 10.0)
-    selectCountry.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+    selectCountry.titleLabel?.font = UIFont(name: "Avenir-Book", size: 15)
     selectCountry.addTarget(self, action: #selector(EnterPhoneNumberController.openCountryCodesList), for: .touchUpInside)
     
     return selectCountry
@@ -58,7 +58,7 @@ class EnterPhoneNumberContainerView: UIView {
     countryCode.text = "+380"
     countryCode.textAlignment = .center
     countryCode.textColor = ThemeManager.currentTheme().generalTitleColor
-    countryCode.font = UIFont.systemFont(ofSize: 18)
+    countryCode.font = UIFont(name: "Avenir-Book", size: 15)
     countryCode.sizeToFit()
    
     return countryCode
@@ -66,7 +66,7 @@ class EnterPhoneNumberContainerView: UIView {
   
   let phoneNumber: UITextField = {
     let phoneNumber = UITextField()
-    phoneNumber.font = UIFont.systemFont(ofSize: 18)
+    phoneNumber.font = UIFont(name: "Avenir-Book", size: 15)
     phoneNumber.translatesAutoresizingMaskIntoConstraints = false
     phoneNumber.textAlignment = .center
     phoneNumber.keyboardType = .numberPad
@@ -107,7 +107,7 @@ class EnterPhoneNumberContainerView: UIView {
     
     NSLayoutConstraint.activate([
       
-      title.topAnchor.constraint(equalTo: topAnchor, constant: spacingConstant),
+      title.topAnchor.constraint(equalTo: topAnchor, constant: 100),
       title.rightAnchor.constraint(equalTo: rightAnchor, constant: rightConstant),
       title.leftAnchor.constraint(equalTo: leftAnchor, constant: leftConstant),
       

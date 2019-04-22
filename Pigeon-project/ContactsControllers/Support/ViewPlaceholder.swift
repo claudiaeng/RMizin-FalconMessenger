@@ -20,14 +20,14 @@ enum ViewPlaceholderPosition {
 }
 
 enum ViewPlaceholderTitle: String {
-  case denied = "Falcon doesn't have access to your contacts"
-  case empty = "You don't have any Falcon Users yet."
+  case denied = "QUOTA doesn't have access to your contacts"
+  case empty = "You don't have any QUOTA connections yet."
   case emptyChat = "You don't have any active conversations yet."
 }
 
 enum ViewPlaceholderSubtitle: String {
-  case denied = "Please go to your iPhone Settings –– Privacy –– Contacts. Then select ON for Falcon."
-  case empty = "You can invite your friends to Flacon Messenger at the Contacts tab  "
+  case denied = "Please go to your iPhone Settings –– Privacy –– Contacts. Then select ON for QUOTA."
+  case empty = "You can invite your friends to QUOTA in the contacts tab of the profile screen."
   case emptyChat = "You can select somebody in Contacts, and send your first message."
 }
 
@@ -44,13 +44,13 @@ class ViewPlaceholder: UIView {
     backgroundColor = .clear
     translatesAutoresizingMaskIntoConstraints = false
     
-    title.font = .systemFont(ofSize: 18)
+    title.font = UIFont(name: "Avenir-Book", size: 15)
     title.textColor = ThemeManager.currentTheme().generalSubtitleColor
     title.textAlignment = .center
     title.numberOfLines = 0
     title.translatesAutoresizingMaskIntoConstraints = false
     
-    subtitle.font = .systemFont(ofSize: 13)
+    subtitle.font = UIFont(name: "Avenir-Book", size: 15)
     subtitle.textColor = ThemeManager.currentTheme().generalSubtitleColor
     subtitle.textAlignment = .center
     subtitle.numberOfLines = 0

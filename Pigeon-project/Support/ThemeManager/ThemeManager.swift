@@ -22,10 +22,10 @@ struct ThemeManager {
     userDefaults.updateObject(for: userDefaults.selectedTheme, with: theme.rawValue)
    
     UITabBar.appearance().barStyle = theme.barStyle
-    UINavigationBar.appearance().isTranslucent = false
+    UINavigationBar.appearance().isTranslucent = true
     UINavigationBar.appearance().barStyle = theme.barStyle
-    UINavigationBar.appearance().barTintColor = theme.barBackgroundColor
-    UITabBar.appearance().barTintColor = theme.barBackgroundColor
+    //UINavigationBar.appearance().barTintColor = theme.barBackgroundColor
+    //UITabBar.appearance().barTintColor = theme.barBackgroundColor
     UITableViewCell.appearance().selectionColor = ThemeManager.currentTheme().cellSelectionColor
 		UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: theme.generalTitleColor]
     
@@ -182,7 +182,10 @@ enum Theme: Int {
   var outgoingBubble: UIImage {
     switch self {
     case .Default:
-			return UIImage(named: "PigeonBubbleOutgoingFull")!.resizableImage(withCapInsets: UIEdgeInsets(top: 14, left: 14, bottom: 17, right: 28))
+			let sent = UIImage(named: "PigeonBubbleOutgoingFull")!.resizableImage(withCapInsets: UIEdgeInsets(top: 14, left: 14, bottom: 17, right: 28))
+            sent.withRenderingMode(.alwaysTemplate)
+            sent.sd_tintedImage(with: Color.gradient.second)
+            return sent
     case .Dark: //DarkPigeonBubbleOutgoingFull
 			return UIImage(named: "PigeonBubbleOutgoingFull")!.resizableImage(withCapInsets: UIEdgeInsets(top: 14, left: 14, bottom: 17, right: 28))
     }

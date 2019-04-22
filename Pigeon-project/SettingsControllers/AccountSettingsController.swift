@@ -29,6 +29,7 @@ class AccountSettingsController: UITableViewController {
   let doneBarButton = UIBarButtonItem(title: "Done", style: .done, target: self, action:  #selector(doneBarButtonPressed))
   var currentName = String()
   var currentBio = String()
+
   
   override func viewDidLoad() {
      super.viewDidLoad()
@@ -37,12 +38,14 @@ class AccountSettingsController: UITableViewController {
     extendedLayoutIncludesOpaqueBars = true
     edgesForExtendedLayout = UIRectEdge.top
     tableView = UITableView(frame: tableView.frame, style: .grouped)
-   
+    view.backgroundColor = .white
+    view.clipsToBounds = true
     configureTableView()
     configureContainerView()
     listenChanges()
     configureNavigationBarDefaultRightBarButton()
     addObservers()
+
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +53,9 @@ class AccountSettingsController: UITableViewController {
     if userProfileContainerView.phone.text == "" {
       listenChanges()
     }
+    
+    view.backgroundColor = .white
+    view.clipsToBounds = true
   }
 
   override func viewDidLayoutSubviews() {
@@ -82,7 +88,7 @@ class AccountSettingsController: UITableViewController {
     tableView.indicatorStyle = ThemeManager.currentTheme().scrollBarStyle
     tableView.tableHeaderView = userProfileContainerView
     tableView.register(AccountSettingsTableViewCell.self, forCellReuseIdentifier: accountSettingsCellId)
-    tableView.backgroundColor = .clear
+    tableView.backgroundColor = .white
   }
   
   fileprivate func configureContainerView() {
@@ -103,8 +109,8 @@ class AccountSettingsController: UITableViewController {
     nightMode.addTarget(self, action: #selector(rightBarButtonDidTap(sender:)), for: .touchUpInside)
     nightMode.isSelected = Bool(ThemeManager.currentTheme().rawValue)
     
-    let rightBarButton = UIBarButtonItem(customView: nightMode)
-    navigationItem.setRightBarButton(rightBarButton, animated: false)
+    //let rightBarButton = UIBarButtonItem(customView: nightMode)
+    //navigationItem.setRightBarButton(rightBarButton, animated: false)
   }
     
   @objc fileprivate func changeTheme() {
@@ -284,13 +290,13 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
       
       if indexPath.row == 2 {
          AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
-        let controller = ChangePhoneNumberController()
-        let destination = UINavigationController(rootViewController: controller)
-        destination.navigationBar.shadowImage = UIImage()
-        destination.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        let destination = ChangePhoneNumberController()
+        //let destination = UINavigationController(rootViewController: controller)
+        //destination.navigationBar.shadowImage = UIImage()
+        //destination.navigationBar.setBackgroundImage(UIImage(), for: .default)
         destination.hidesBottomBarWhenPushed = true
-        destination.navigationBar.isTranslucent = false
-        present(destination, animated: true, completion: nil)
+        //destination.navigationBar.isTranslucent = false
+        navigationController?.pushViewController(destination, animated: true)
       }
       
       if indexPath.row == 3 {

@@ -13,7 +13,7 @@ class OnboardingContainerView: UIView {
   let logoImageView: UIImageView = {
     let logoImageView = UIImageView()
     logoImageView.translatesAutoresizingMaskIntoConstraints = false
-    logoImageView.image = UIImage(named: "roundedPigeon")
+    logoImageView.image = UIImage(named: "logo")
     logoImageView.contentMode = .scaleAspectFit
     return logoImageView
   }()
@@ -21,8 +21,8 @@ class OnboardingContainerView: UIView {
   let welcomeTitle: UILabel = {
     let welcomeTitle = UILabel()
     welcomeTitle.translatesAutoresizingMaskIntoConstraints = false
-    welcomeTitle.text = "Welcome to Falcon"
-    welcomeTitle.font = UIFont.systemFont(ofSize: 20)
+    welcomeTitle.text = "Your Best Career Resource"
+    welcomeTitle.font = UIFont(name: "Avenir-Book", size: 15)
     welcomeTitle.textAlignment = .center
     welcomeTitle.textColor = ThemeManager.currentTheme().generalTitleColor
     return welcomeTitle
@@ -31,10 +31,10 @@ class OnboardingContainerView: UIView {
   let startMessaging: UIButton = {
     let startMessaging = UIButton()
     startMessaging.translatesAutoresizingMaskIntoConstraints = false
-    startMessaging.setTitle("Start messaging", for: .normal)
-    startMessaging.setTitleColor(FalconPalette.defaultBlue, for: .normal)
+    startMessaging.setTitle("Start Networking", for: .normal)
+    startMessaging.setTitleColor(.black, for: .normal)
     startMessaging.titleLabel?.backgroundColor = .clear
-    startMessaging.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+    startMessaging.titleLabel?.font = UIFont(name: "Avenir-Heavy", size: 15)
     startMessaging.addTarget(self, action: #selector(OnboardingController.startMessagingDidTap), for: .touchUpInside)
     
     return startMessaging
@@ -50,7 +50,7 @@ class OnboardingContainerView: UIView {
     addSubview(startMessaging)
     
     NSLayoutConstraint.activate([
-      logoImageView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
+      logoImageView.topAnchor.constraint(equalTo: topAnchor, constant: 100),
       logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
       logoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
       logoImageView.heightAnchor.constraint(equalTo: logoImageView.widthAnchor),

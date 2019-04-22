@@ -15,7 +15,7 @@ class EnterVerificationContainerView: UIView {
     titleNumber.translatesAutoresizingMaskIntoConstraints = false
     titleNumber.textAlignment = .center
     titleNumber.textColor = ThemeManager.currentTheme().generalTitleColor
-    titleNumber.font = UIFont.systemFont(ofSize: 32)
+    titleNumber.font = UIFont(name: "Didot", size: 30)
     
     return titleNumber
   }()
@@ -23,17 +23,17 @@ class EnterVerificationContainerView: UIView {
   let subtitleText: UILabel = {
     let subtitleText = UILabel()
     subtitleText.translatesAutoresizingMaskIntoConstraints = false
-    subtitleText.font = UIFont.systemFont(ofSize: 15)
+    subtitleText.font = UIFont(name: "Avenir-Book", size: 15)
     subtitleText.textAlignment = .center
     subtitleText.textColor = ThemeManager.currentTheme().generalTitleColor
-    subtitleText.text = "We have sent you an SMS with the code"
+    subtitleText.text = "We have sent you an SMS with the code."
     
     return subtitleText
   }()
   
   let verificationCode: UITextField = {
     let verificationCode = UITextField()
-    verificationCode.font = UIFont.systemFont(ofSize: 20)
+    verificationCode.font = UIFont(name: "Avenir-Book", size: 15)
     verificationCode.translatesAutoresizingMaskIntoConstraints = false
     verificationCode.textAlignment = .center
     verificationCode.keyboardType = .numberPad
@@ -55,7 +55,8 @@ class EnterVerificationContainerView: UIView {
     resend.setTitle("Resend", for: .normal)
     resend.contentVerticalAlignment = .center
     resend.contentHorizontalAlignment = .center
-    resend.setTitleColor(FalconPalette.defaultBlue, for: .normal)
+    resend.titleLabel?.font = UIFont(name: "Avenir-Book", size: 15)
+    resend.setTitleColor(.black, for: .normal)
     resend.setTitleColor(ThemeManager.currentTheme().generalSubtitleColor, for: .highlighted)
     resend.setTitleColor(ThemeManager.currentTheme().generalSubtitleColor, for: .disabled)
     
@@ -72,7 +73,7 @@ class EnterVerificationContainerView: UIView {
   var timerLabel: UILabel = {
     var timerLabel = UILabel()
     timerLabel.textColor = ThemeManager.currentTheme().generalSubtitleColor
-    timerLabel.font = UIFont.systemFont(ofSize: 13)
+    timerLabel.font = UIFont(name: "Avenir-Book", size: 15)
     timerLabel.translatesAutoresizingMaskIntoConstraints = false
     timerLabel.textAlignment = .center
     timerLabel.sizeToFit()
@@ -91,7 +92,7 @@ class EnterVerificationContainerView: UIView {
     addSubview(timerLabel)
   
     NSLayoutConstraint.activate([
-      titleNumber.topAnchor.constraint(equalTo: topAnchor),
+      titleNumber.topAnchor.constraint(equalTo: topAnchor, constant: 100),
       titleNumber.leadingAnchor.constraint(equalTo: leadingAnchor),
       titleNumber.trailingAnchor.constraint(equalTo: trailingAnchor),
       titleNumber.heightAnchor.constraint(equalToConstant: 70),

@@ -129,7 +129,7 @@ class UserInfoTableViewController: UITableViewController {
                                                      for: indexPath) as? UserinfoHeaderTableViewCell ?? UserinfoHeaderTableViewCell()
       
       headerCell.title.text = user?.name ?? ""
-      headerCell.title.font = UIFont.boldSystemFont(ofSize: 20)
+      headerCell.title.font = UIFont(name: "Avenir-Book", size: 15)
       
       if let timestamp = user?.onlineStatus {
         headerCell.subtitle.text = stringTimestamp(onlineStatusObject: timestamp)
@@ -167,7 +167,7 @@ class UserInfoTableViewController: UITableViewController {
       phoneNumberCell.phoneLabel.textColor = ThemeManager.currentTheme().generalTitleColor
       phoneNumberCell.userInfoTableViewController = self
       phoneNumberCell.phoneLabel.text = user?.phoneNumber ?? ""
-      phoneNumberCell.phoneLabel.font = UIFont.systemFont(ofSize: 17)
+      phoneNumberCell.phoneLabel.font = UIFont(name: "Avenir-Book", size: 15)
       phoneNumberCell.bio.text = user?.bio ?? ""
       phoneNumberCell.bio.textColor = ThemeManager.currentTheme().generalTitleColor
       

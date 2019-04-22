@@ -54,13 +54,38 @@ class ChatsTableViewController: UITableViewController {
 
   let viewPlaceholder = ViewPlaceholder()
   let navigationItemActivityIndicator = NavigationItemActivityIndicator()
+    
+    @objc fileprivate func contacts() {
+        let destination = ContactsController()
+        destination.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(destination, animated: true)
+    }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-   
+
+    
     configureTableView()
     setupSearchController()
     addObservers()
+    
+    if #available(iOS 11.0, *) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    } else {
+        // Fallback on earlier versions
+    }
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    // Sets shadow (line below the bar) to a blank image
+    navigationController?.navigationBar.shadowImage = UIImage()
+    // Sets the translucent background color
+    navigationController?.navigationBar.backgroundColor = .clear
+    // Set translucent. (Default value is already true, so this can be removed if desired.)
+    navigationController?.navigationBar.isTranslucent = true
+    navigationItem.title = "Collaborate"
+    self.navigationController?.navigationBar.titleTextAttributes =
+        [NSAttributedString.Key.foregroundColor: UIColor.black,
+         NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 15)!]
+    //NotificationCenter.default.addObserver(self, selector: #selector(fetchData), name: SharePhotoController.updateFeedNotificationName, object: nil)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -105,7 +130,7 @@ class ChatsTableViewController: UITableViewController {
     tableView.indicatorStyle = ThemeManager.currentTheme().scrollBarStyle
     tableView.backgroundColor = view.backgroundColor
     navigationItem.leftBarButtonItem = editButtonItem
-    let newChatBarButton =  UIBarButtonItem(image: UIImage(named: "composeButton"), style: .done, target: self, action: #selector(newChat))
+    let newChatBarButton =  UIBarButtonItem(image: UIImage(named: "composeButton"), style: .done, target: self, action: #selector(contacts))
     navigationItem.rightBarButtonItem = newChatBarButton
     extendedLayoutIncludesOpaqueBars = true
     edgesForExtendedLayout = UIRectEdge.top
@@ -141,8 +166,11 @@ class ChatsTableViewController: UITableViewController {
       searchBar?.delegate = self
       searchBar?.placeholder = "Search"
       searchBar?.searchBarStyle = .minimal
+      searchBar?.change(textFont: UIFont(name: "Avenir-Book", size: 15))
       searchBar?.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
       tableView.tableHeaderView = searchBar
+
+        
     }
   }
   
@@ -177,7 +205,7 @@ class ChatsTableViewController: UITableViewController {
     guard let uid = Auth.auth().currentUser?.uid else { return }
     
     guard let tabItems = tabBarController?.tabBar.items as NSArray? else { return }
-    guard let tabItem = tabItems[Tabs.chats.rawValue] as? UITabBarItem else { return }
+    guard let tabItem = tabItems[3] as? UITabBarItem else { return }
     var badge = 0
     
     for conversation in filtededConversations {
@@ -197,6 +225,7 @@ class ChatsTableViewController: UITableViewController {
     }
     
     tabItem.badgeValue = badge.toString()
+
     UIApplication.shared.applicationIconBadgeNumber = badge
   }
   
@@ -284,7 +313,7 @@ class ChatsTableViewController: UITableViewController {
     
     if let headerTitle = view as? UITableViewHeaderFooterView {
       headerTitle.textLabel?.textColor = ThemeManager.currentTheme().generalSubtitleColor
-      headerTitle.textLabel?.font = UIFont.systemFont(ofSize: 10)
+        headerTitle.textLabel?.font = UIFont(name: "Avenir-Book", size: 15)
     }
   }
   

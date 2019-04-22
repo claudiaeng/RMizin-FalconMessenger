@@ -31,11 +31,11 @@ public enum ImagePickerMediaType {
     @objc optional func controller(_ controller: ImagePickerTrayController, didRecordVideoAsset asset: PHAsset)
 }
 
-public let ImagePickerTrayWillShow: Notification.Name = Notification.Name(rawValue: "ch.laurinbrandner.ImagePickerTrayWillShow")
-public let ImagePickerTrayDidShow: Notification.Name = Notification.Name(rawValue: "ch.laurinbrandner.ImagePickerTrayDidShow")
+public let ImagePickerTrayWillShow: NSNotification.Name = NSNotification.Name(rawValue: "ch.laurinbrandner.ImagePickerTrayWillShow")
+public let ImagePickerTrayDidShow: NSNotification.Name = NSNotification.Name(rawValue: "ch.laurinbrandner.ImagePickerTrayDidShow")
 
-public let ImagePickerTrayWillHide: Notification.Name = Notification.Name(rawValue: "ch.laurinbrandner.ImagePickerTrayWillHide")
-public let ImagePickerTrayDidHide: Notification.Name = Notification.Name(rawValue: "ch.laurinbrandner.ImagePickerTrayDidHide")
+public let ImagePickerTrayWillHide: NSNotification.Name = NSNotification.Name(rawValue: "ch.laurinbrandner.ImagePickerTrayWillHide")
+public let ImagePickerTrayDidHide: NSNotification.Name = NSNotification.Name(rawValue: "ch.laurinbrandner.ImagePickerTrayDidHide")
 
 public let ImagePickerTrayFrameUserInfoKey = "ImagePickerTrayFrame"
 public let ImagePickerTrayAnimationDurationUserInfoKey = "ImagePickerTrayAnimationDuration"

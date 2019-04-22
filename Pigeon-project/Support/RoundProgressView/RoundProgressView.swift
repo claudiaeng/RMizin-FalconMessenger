@@ -32,7 +32,7 @@ public class CircleProgress: UIView, CAAnimationDelegate {
   
   @IBInspectable public var fontSize: Float = 25 {
     didSet{
-      progressLabel.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
+        progressLabel.font = UIFont(name: "Didot", size: CGFloat(fontSize))
     }
   }
   
@@ -267,7 +267,7 @@ public class CircleProgress: UIView, CAAnimationDelegate {
   //MARK: - Private
   private func initialize() {
     //progressLabel
-    progressLabel.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
+    progressLabel.font = UIFont(name: "Didot", size: CGFloat(fontSize))
     progressLabel.textColor = strokeColor
     progressLabel.textAlignment = .center
     progressLabel.adjustsFontSizeToFitWidth = true

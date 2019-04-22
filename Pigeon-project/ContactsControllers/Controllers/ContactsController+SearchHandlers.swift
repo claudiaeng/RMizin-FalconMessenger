@@ -38,9 +38,10 @@ extension ContactsController: UISearchBarDelegate, UISearchControllerDelegate, U
       return User.name!.lowercased().contains(searchText.lowercased())
     })
     
-    filteredContacts = searchText.isEmpty ? contacts : contacts.filter({ (CNContact) -> Bool in
-      let contactFullName = CNContact.givenName.lowercased() + " " + CNContact.familyName.lowercased()
-      return contactFullName.lowercased().contains(searchText.lowercased())
+    filteredContacts = searchText.isEmpty ? contacts : contacts.filter({ (User) -> Bool in
+      //let contactFullName = CNContact.givenName.lowercased() + " " + CNContact.familyName.lowercased()
+      //return contactFullName.lowercased().contains(searchText.lowercased())
+        return true
     })
     tableView.reloadData()
   }

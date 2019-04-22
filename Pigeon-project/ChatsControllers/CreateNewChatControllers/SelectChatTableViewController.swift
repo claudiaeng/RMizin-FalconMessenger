@@ -173,7 +173,7 @@ class SelectChatTableViewController: UITableViewController {
     view.tintColor = ThemeManager.currentTheme().inputTextViewColor
     if let headerTitle = view as? UITableViewHeaderFooterView {
       headerTitle.textLabel?.textColor = ThemeManager.currentTheme().generalSubtitleColor
-      headerTitle.textLabel?.font = UIFont.systemFont(ofSize: 10)
+      headerTitle.textLabel?.font = UIFont(name: "Avenir-Book", size: 15)
     }
   }
   
@@ -194,7 +194,7 @@ class SelectChatTableViewController: UITableViewController {
       cell.backgroundColor = ThemeManager.currentTheme().generalBackgroundColor
       cell.imageView?.image = UIImage(named: "groupChat")
       cell.imageView?.contentMode = .scaleAspectFit
-      cell.textLabel?.font = UIFont.systemFont(ofSize: 17)
+      cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 15)
       cell.textLabel?.text = actions[indexPath.row]
       cell.textLabel?.textColor = FalconPalette.defaultBlue
       return cell

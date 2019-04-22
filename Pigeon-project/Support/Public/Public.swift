@@ -142,13 +142,13 @@ public let messageStatusRead = "Read"
 public let messageStatusSending = "Sending"
 public let messageStatusDelivered = "Delivered"
 
-let cameraAccessDeniedMessage = "Falcon needs access to your camera to take photos and videos.\n\nPlease go to Settings –– Privacy –– Camera –– and set Falcon to ON."
-let contactsAccessDeniedMessage = "Falcon needs access to your contacts to create new ones.\n\nPlease go to Settings –– Privacy –– Contacts –– and set Falcon to ON."
-let microphoneAccessDeniedMessage = "Falcon needs access to your microphone to record audio messages.\n\nPlease go to Settings –– Privacy –– Microphone –– and set Falcon to ON."
-let photoLibraryAccessDeniedMessage = "Falcon needs access to your photo library to send photos and videos.\n\nPlease go to Settings –– Privacy –– Photos –– and set Falcon to ON."
+let cameraAccessDeniedMessage = "QUOTA needs access to your camera to take photos and videos.\n\nPlease go to Settings –– Privacy –– Camera –– and set Falcon to ON."
+let contactsAccessDeniedMessage = "QUOTA needs access to your contacts to create new ones.\n\nPlease go to Settings –– Privacy –– Contacts –– and set Falcon to ON."
+let microphoneAccessDeniedMessage = "QUOTA needs access to your microphone to record audio messages.\n\nPlease go to Settings –– Privacy –– Microphone –– and set Falcon to ON."
+let photoLibraryAccessDeniedMessage = "QUOtA needs access to your photo library to send photos and videos.\n\nPlease go to Settings –– Privacy –– Photos –– and set Falcon to ON."
 
-let cameraAccessDeniedMessageProfilePicture = "Falcon needs access to your camera to take photo for your profile.\n\nPlease go to Settings –– Privacy –– Camera –– and set Falcon to ON."
-let photoLibraryAccessDeniedMessageProfilePicture = "Falcon needs access to your photo library to select photo for your profile.\n\nPlease go to Settings –– Privacy –– Photos –– and set Falcon to ON."
+let cameraAccessDeniedMessageProfilePicture = "QUOTA needs access to your camera to take photo for your profile.\n\nPlease go to Settings –– Privacy –– Camera –– and set Falcon to ON."
+let photoLibraryAccessDeniedMessageProfilePicture = "QUOTA needs access to your photo library to select photo for your profile.\n\nPlease go to Settings –– Privacy –– Photos –– and set Falcon to ON."
 
 let videoRecordedButLibraryUnavailableError = "To send a recorded video, it has to be saved to your photo library first. Please go to Settings –– Privacy –– Photos –– and set Falcon to ON."
 
@@ -163,11 +163,6 @@ let thumbnailUploadError = "Failed to upload your image to database. Please, che
 let fullsizePictureUploadError = "Failed to upload fullsize image to database. Please, check your internet connection and try again. Despite this error, thumbnail version of this picture has been uploaded, but you still should re-upload your fullsize image."
 
 extension String {
-  
-  var digits: String {
-    return components(separatedBy: CharacterSet.decimalDigits.inverted)
-      .joined()
-  }
   
   var doubleValue: Double {
     return Double(self) ?? 0
@@ -449,12 +444,12 @@ extension UINavigationItem {
     let one = UILabel()
     one.text = title
     one.textColor = ThemeManager.currentTheme().generalTitleColor
-    one.font = UIFont.systemFont(ofSize: 17)
+    one.font = UIFont(name: "Avenir-Book", size: 15)
     one.sizeToFit()
     
     let two = UILabel()
     two.text = subtitle
-    two.font = UIFont.systemFont(ofSize: 12)
+    two.font = UIFont(name: "Avenir-Book", size: 15)
     two.textAlignment = .center
     two.textColor = ThemeManager.currentTheme().generalSubtitleColor
     two.sizeToFit()

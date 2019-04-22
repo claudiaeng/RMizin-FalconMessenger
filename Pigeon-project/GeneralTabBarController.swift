@@ -10,12 +10,6 @@ import UIKit
 import Firebase
 
 
-enum Tabs: Int {
-  case contacts = 0
-  case chats = 1
-  case settings = 2
-}
-
 class GeneralTabBarController: UITabBarController {
   
   var onceToken = 0

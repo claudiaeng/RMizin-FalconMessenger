@@ -25,7 +25,7 @@ class CurrentUserTableViewCell: UITableViewCell {
   var title: UILabel = {
     var title = UILabel()
     title.translatesAutoresizingMaskIntoConstraints = false
-    title.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.semibold)
+    title.font = UIFont(name: "Avenir-Heavy", size: 15)
     title.textColor = ThemeManager.currentTheme().generalTitleColor
     return title
   }()

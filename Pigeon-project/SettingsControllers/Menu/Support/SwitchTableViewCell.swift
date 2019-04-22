@@ -18,7 +18,7 @@ class SwitchTableViewCell: UITableViewCell {
   var title: UILabel = {
     var title = UILabel()
     title.translatesAutoresizingMaskIntoConstraints = false
-    title.font = UIFont.systemFont(ofSize: 18)
+    title.font = UIFont(name: "Avenir-Book", size: 15)
     title.textColor = ThemeManager.currentTheme().generalTitleColor
     
     return title

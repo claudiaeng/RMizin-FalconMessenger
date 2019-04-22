@@ -102,7 +102,7 @@ class CreateContactTableViewController: UITableViewController {
         
       } else {
         cell.textField.keyboardType = .phonePad
-        cell.textField.attributedPlaceholder = NSAttributedString(string:"Phone number",
+        cell.textField.attributedPlaceholder = NSAttributedString(string:"Phone Number",
 																																	attributes: [NSAttributedString.Key.foregroundColor: ThemeManager.currentTheme().generalSubtitleColor])
         
         cell.textField.text = contact?.phoneNumbers[0].value.stringValue

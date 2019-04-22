@@ -25,7 +25,7 @@ class UserinfoHeaderTableViewCell: UITableViewCell {
   var title: UILabel = {
     var title = UILabel()
     title.translatesAutoresizingMaskIntoConstraints = false
-    title.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold)
+    title.font = UIFont(name: "Avenir-Heavy", size: 15)
     title.textColor = ThemeManager.currentTheme().generalTitleColor
     return title
   }()
@@ -33,7 +33,7 @@ class UserinfoHeaderTableViewCell: UITableViewCell {
   var subtitle: UILabel = {
     var subtitle = UILabel()
     subtitle.translatesAutoresizingMaskIntoConstraints = false
-    subtitle.font = UIFont.systemFont(ofSize: 15)
+    subtitle.font = UIFont(name: "Avenir-Book", size: 15)
     subtitle.textColor = ThemeManager.currentTheme().generalSubtitleColor
     
     return subtitle

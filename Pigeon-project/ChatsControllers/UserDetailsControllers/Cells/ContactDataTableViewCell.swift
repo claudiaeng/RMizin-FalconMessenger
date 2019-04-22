@@ -14,7 +14,7 @@ class ContactDataTableViewCell: UITableViewCell {
     let textField = UITextField()
     textField.placeholder = ""
     textField.translatesAutoresizingMaskIntoConstraints = false
-    textField.font = UIFont.systemFont(ofSize: 20)
+    textField.font = UIFont(name: "Avenir-Book", size: 15)
     textField.keyboardAppearance = ThemeManager.currentTheme().keyboardAppearance
     
     return textField

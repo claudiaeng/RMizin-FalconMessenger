@@ -12,7 +12,7 @@ class OutgoingTextMessageCell: BaseMessageCell {
   
   let textView: FalconTextView = {
     let textView = FalconTextView()
-    textView.font = UIFont.systemFont(ofSize: 13)
+    textView.font = UIFont(name: "Avenir-Book", size: 15)
     textView.backgroundColor = .clear
     textView.isEditable = false
     textView.isScrollEnabled = false
@@ -20,7 +20,6 @@ class OutgoingTextMessageCell: BaseMessageCell {
     textView.dataDetectorTypes = .all
     textView.textColor = .white
 		textView.linkTextAttributes = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single]
-
     return textView
   }()
 

@@ -73,7 +73,7 @@ class ChatInputContainerView: UIView {
     let textView = UITextView()
     textView.translatesAutoresizingMaskIntoConstraints = false
     textView.delegate = self
-    textView.font = UIFont.systemFont(ofSize: 16)
+    textView.font = UIFont(name: "Avenir-Book", size: 15)
     textView.keyboardAppearance = ThemeManager.currentTheme().keyboardAppearance
     textView.isScrollEnabled = false
     textView.layer.cornerRadius = 18
@@ -189,7 +189,7 @@ class ChatInputContainerView: UIView {
     inputTextView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -6).isActive = true
     inputTextView.leftAnchor.constraint(equalTo: recordVoiceButton.rightAnchor, constant: 3).isActive = true
     
-    placeholderLabel.font = UIFont.systemFont(ofSize: (inputTextView.font!.pointSize - 1))
+    placeholderLabel.font = UIFont(name: "Avenir-Book", size: 15)
     placeholderLabel.isHidden = !inputTextView.text.isEmpty
     placeholderLabel.leftAnchor.constraint(equalTo: inputTextView.leftAnchor, constant: 12).isActive = true
     placeholderLabel.rightAnchor.constraint(equalTo: inputTextView.rightAnchor).isActive = true

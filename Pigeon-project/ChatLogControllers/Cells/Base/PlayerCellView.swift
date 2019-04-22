@@ -30,7 +30,7 @@ class PlayerCellView: UIView {
     timerLabel.textColor = .white
     timerLabel.text = "00:00:00"
     timerLabel.textAlignment = .center
-    timerLabel.font = UIFont.systemFont(ofSize: 13)
+    timerLabel.font = UIFont(name: "Avenir-Book", size: 15)
     
     return timerLabel
   }()

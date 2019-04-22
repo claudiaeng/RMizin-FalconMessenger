@@ -55,7 +55,7 @@ class UserProfileContainerView: UIView {
   
   var name: PasteRestrictedTextField = {
     let name = PasteRestrictedTextField()
-    name.font = UIFont.systemFont(ofSize: 20)
+    name.font = UIFont(name: "Avenir-Book", size: 15)
     name.enablesReturnKeyAutomatically = true
     name.translatesAutoresizingMaskIntoConstraints = false
     name.textAlignment = .center
@@ -71,11 +71,11 @@ class UserProfileContainerView: UIView {
   
   let phone: PasteRestrictedTextField = {
     let phone = PasteRestrictedTextField()
-    phone.font = UIFont.systemFont(ofSize: 20)
+    phone.font = UIFont(name: "Avenir-Book", size: 15)
     phone.translatesAutoresizingMaskIntoConstraints = false
     phone.textAlignment = .center
     phone.keyboardType = .numberPad
-    phone.placeholder = "Phone number"
+    phone.placeholder = "Phone Number"
     phone.borderStyle = .none
     phone.isEnabled = false
     phone.textColor = ThemeManager.currentTheme().generalSubtitleColor
@@ -112,7 +112,7 @@ class UserProfileContainerView: UIView {
     bio.layer.cornerRadius = 28
     bio.layer.borderWidth = 1
     bio.textAlignment = .center
-    bio.font = UIFont.systemFont(ofSize: 16)
+    bio.font = UIFont(name: "Avenir-Book", size: 15)
     bio.isScrollEnabled = false
     bio.textContainerInset = UIEdgeInsets(top: 15, left: 35, bottom: 15, right: 35)
     bio.keyboardAppearance = ThemeManager.currentTheme().keyboardAppearance
@@ -188,7 +188,7 @@ class UserProfileContainerView: UIView {
         bioPlaceholderLabel.centerYAnchor.constraint(equalTo: bio.centerYAnchor, constant: 0),
       ])
     
-    bioPlaceholderLabel.font = UIFont.systemFont(ofSize: 20)//(bio.font!.pointSize - 1)
+    bioPlaceholderLabel.font = UIFont(name: "Avenir-Book", size: 15)
     bioPlaceholderLabel.isHidden = !bio.text.isEmpty
    
     

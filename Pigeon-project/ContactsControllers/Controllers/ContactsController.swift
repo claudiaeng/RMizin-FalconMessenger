@@ -25,8 +25,8 @@ private let contactsCellID = "contactsCellID"
 
 class ContactsController: UITableViewController {
   
-  var contacts = [CNContact]()
-  var filteredContacts = [CNContact]()
+  var contacts = [User]()
+  var filteredContacts = [User]()
   var users = [User]()
   var filteredUsers = [User]()
 
@@ -40,6 +40,7 @@ class ContactsController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      title = "Contacts"
       configureViewController()
       setupSearchController()
       addObservers()
@@ -51,7 +52,7 @@ class ContactsController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
       guard shouldReFetchFalconUsers else { return }
-      shouldReFetchFalconUsers = false
+      shouldReFetchFalconUsers = true
       DispatchQueue.global(qos: .default).async { [unowned self] in
         self.falconUsersFetcher.fetchFalconUsers(asynchronously: true)
       }
@@ -122,7 +123,7 @@ class ContactsController: UITableViewController {
       if isSearchInProgress && !isSearchControllerEmpty {
         return
       } else {
-        self.filteredUsers = self.users
+        self.filteredUsers = self.filteredContacts
         guard self.filteredUsers.count != 0 else { return }
         DispatchQueue.main.async {
           self.tableView.reloadData()
@@ -174,10 +175,10 @@ class ContactsController: UITableViewController {
         if filteredUsers.count == 0 {
           return ""
         } else {
-          return "Falcon contacts"
+          return "QUOTA Connections"
         }
       } else {
-        return "All contacts"
+        return "All"
       }
     }
 
@@ -210,7 +211,8 @@ class ContactsController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: contactsCellID,
                                                  for: indexPath) as? ContactsTableViewCell ?? ContactsTableViewCell()
         cell.icon.image = UIImage(named: "UserpicIcon")
-        cell.title.text = filteredContacts[indexPath.row].givenName + " " + filteredContacts[indexPath.row].familyName
+        //changed from givenName and familyName to phoneNumber
+        cell.title.text = filteredContacts[indexPath.row].phoneNumber! + " " + filteredContacts[indexPath.row].phoneNumber!
         return cell
       }
     }
@@ -246,11 +248,13 @@ class ContactsController: UITableViewController {
         messagesFetcher?.loadMessagesData(for: conversation)
       } else {
         let destination = ContactsDetailController()
-        destination.contactName = filteredContacts[indexPath.row].givenName + " " + filteredContacts[indexPath.row].familyName
+        //again changed given and family name to phone number
+        destination.contactName = filteredContacts[indexPath.row].phoneNumber! + " " + filteredContacts[indexPath.row].phoneNumber!
         destination.contactPhoneNumbers.removeAll()
         destination .hidesBottomBarWhenPushed = true
-        for phoneNumber in filteredContacts[indexPath.row].phoneNumbers {
-          destination.contactPhoneNumbers.append(phoneNumber.value.stringValue)
+        for phoneNumber in filteredContacts[indexPath.row].phoneNumber! {
+            //removed the value and stringvalue after phoneNumber
+          destination.contactPhoneNumbers.append(String(phoneNumber))
         }
         self.navigationController?.pushViewController(destination, animated: true)
       }
@@ -295,7 +299,7 @@ extension ContactsController: MessagesDelegate {
 
 extension ContactsController: ContactsUpdatesDelegate {
  
-  func contacts(updateDatasource contacts: [CNContact]) {
+  func connections(updateDatasource contacts: [User]) {
     self.contacts = contacts
     self.filteredContacts = contacts
     DispatchQueue.main.async { [unowned self] in

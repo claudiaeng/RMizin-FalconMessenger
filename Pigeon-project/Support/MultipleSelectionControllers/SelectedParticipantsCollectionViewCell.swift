@@ -15,7 +15,7 @@ class SelectedParticipantsCollectionViewCell: UICollectionViewCell {
   var title: UILabel = {
     var title = UILabel()
     title.translatesAutoresizingMaskIntoConstraints = false
-    title.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold)
+    title.font = UIFont(name: "Avenir-Heavy", size: 15)
     title.textColor = .white
     title.textAlignment = .center
     

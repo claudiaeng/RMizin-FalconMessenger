@@ -16,7 +16,7 @@ class AuthPhoneNumberController: EnterPhoneNumberController {
     
     phoneNumberContainerView.instructions.text = "Please confirm your country code\nand enter your phone number."
 		let attributes = [NSAttributedString.Key.foregroundColor: ThemeManager.currentTheme().generalSubtitleColor]
-    phoneNumberContainerView.phoneNumber.attributedPlaceholder = NSAttributedString(string: "Phone number", attributes: attributes)
+    phoneNumberContainerView.phoneNumber.attributedPlaceholder = NSAttributedString(string: "Phone Number", attributes: attributes)
   }
   
   override func rightBarButtonDidTap() {

@@ -119,7 +119,7 @@ class InAppNotificationManager: NSObject {
                                     textColor: ThemeManager.currentTheme().generalTitleColor,
                                     dragIndicatordColor: ThemeManager.currentTheme().generalTitleColor) {}
     guard let rc = UIApplication.shared.keyWindow?.rootViewController else { return }
-    Pigeon_project.show(shout: announcement, to: rc)
+    //self.show(shout: announcement, to: rc)
   }
   
   fileprivate func playNotificationSound() {

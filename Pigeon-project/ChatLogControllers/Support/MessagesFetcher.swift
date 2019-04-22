@@ -205,7 +205,7 @@ class MessagesFetcher: NSObject {
   func estimateFrameForText(_ text: String) -> CGRect {
     let size = CGSize(width: 200, height: 10000)
     let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-		let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)]
+		let attributes = [NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 15)]
     return text.boundingRect(with: size, options: options, attributes: attributes, context: nil).integral
   }
 

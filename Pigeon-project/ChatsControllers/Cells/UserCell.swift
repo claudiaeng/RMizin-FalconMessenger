@@ -46,7 +46,7 @@ class UserCell: UITableViewCell {
 
     let timeLabel: UILabel = {
       let label = UILabel()
-      label.font = UIFont.systemFont(ofSize: 12)
+      label.font = UIFont(name: "Avenir-Book", size: 12)
       label.textColor = ThemeManager.currentTheme().generalSubtitleColor
       label.translatesAutoresizingMaskIntoConstraints = false
       label.sizeToFit()
@@ -58,7 +58,7 @@ class UserCell: UITableViewCell {
     let nameLabel: UILabel = {
       let label = UILabel()
       label.textColor = ThemeManager.currentTheme().generalTitleColor
-      label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold) 
+      label.font = UIFont(name: "Avenir-Heavy", size: 15)
       label.translatesAutoresizingMaskIntoConstraints = false
       label.sizeToFit()
 
@@ -67,7 +67,7 @@ class UserCell: UITableViewCell {
   
     let messageLabel: UILabel = {
       let label = UILabel()
-      label.font = UIFont.systemFont(ofSize: 13)
+      label.font = UIFont(name: "Avenir-Book", size: 15)
       label.textColor = ThemeManager.currentTheme().generalSubtitleColor
       label.numberOfLines = 2
       label.translatesAutoresizingMaskIntoConstraints = false
@@ -92,7 +92,7 @@ class UserCell: UITableViewCell {
     badgeLabel.textColor = .white
     badgeLabel.textAlignment = .center
     badgeLabel.layer.masksToBounds = true
-    badgeLabel.font = UIFont.systemFont(ofSize: 10)
+    badgeLabel.font = UIFont(name: "Avenir-Book", size: 15)
 
     return badgeLabel
   }()

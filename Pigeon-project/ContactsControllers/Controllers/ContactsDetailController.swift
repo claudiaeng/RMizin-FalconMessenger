@@ -14,7 +14,7 @@ class ContactsDetailController: UITableViewController {
   var contactName = String()
   
   var contactPhoneNumbers = [String]()
-  let invitationText = "Hey! Download Falcon Messenger on the App Store. https://itunes.apple.com/ua/app/falcon-messenger/id1313765714?mt=8 "
+  let invitationText = "Hey! Download QUOTA on the App Store. https://itunes.apple.com/ua/app/falcon-messenger/id1313765714?mt=8 "
 
   override func viewDidLoad() {
       super.viewDidLoad()
@@ -48,15 +48,15 @@ class ContactsDetailController: UITableViewController {
     if indexPath.section == 0 {
       cell.imageView?.image = UIImage(named: "UserpicIcon")
       cell.textLabel?.text = contactName
-      cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+      cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 15)
     } else if indexPath.section == 1 {
       cell.imageView?.image = nil
       cell.textLabel?.text = contactPhoneNumbers[indexPath.row]
-      cell.textLabel?.font = UIFont.systemFont(ofSize: 17)
+      cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 15)
     } else {
       cell.textLabel?.textColor = FalconPalette.defaultBlue
-      cell.textLabel?.text = "Invite to Falcon"
-      cell.textLabel?.font = UIFont.systemFont(ofSize: 17)
+      cell.textLabel?.text = "Invite to QUOTA"
+      cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 15)
     }
     return cell
   }

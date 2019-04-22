@@ -18,6 +18,11 @@ class OnboardingController: UIViewController {
     view.backgroundColor = ThemeManager.currentTheme().generalBackgroundColor
     view.addSubview(onboardingContainerView)
     onboardingContainerView.frame = view.bounds
+    if #available(iOS 11.0, *) {
+        onboardingContainerView.insetsLayoutMarginsFromSafeArea = true
+    } else {
+        // Fallback on earlier versions
+    }
     setColorsAccordingToTheme()
   }
   

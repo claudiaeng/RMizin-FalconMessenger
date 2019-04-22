@@ -15,7 +15,7 @@ protocol FalconUsersUpdatesDelegate: class {
   func falconUsers(shouldBeUpdatedTo users: [User])
 }
 
-public var shouldReFetchFalconUsers: Bool = false
+public var shouldReFetchFalconUsers: Bool = true
 
 class FalconUsersFetcher: NSObject {
   
@@ -66,7 +66,7 @@ class FalconUsersFetcher: NSObject {
     }
     
     group.notify(queue: DispatchQueue.main, execute: {
-      print("COntacts load finished Falcon")
+      print("Contacts finished loading.")
       self.delegate?.falconUsers(shouldBeUpdatedTo: self.users)
     })
     
@@ -76,17 +76,24 @@ class FalconUsersFetcher: NSObject {
   }
   
   fileprivate func fetchAsynchronously() {
-    var preparedNumber = String()
-    
+    var preparedNumbers = [String]()
     
     for number in localPhones {
-      do {
-        let countryCode = try phoneNumberKit.parse(number).countryCode
-        let nationalNumber = try phoneNumberKit.parse(number).nationalNumber
-        preparedNumber = "+" + String(countryCode) + String(nationalNumber)
-      } catch {}
+        do {
+            let countryCode = try phoneNumberKit.parse(number).countryCode
+            let nationalNumber = try phoneNumberKit.parse(number).nationalNumber
+            preparedNumbers.append("+" + String(countryCode) + String(nationalNumber))
+            group.enter()
+            print("entering group")
+        } catch {}
+    }
+    group.notify(queue: DispatchQueue.main, execute: {
+        print("Contacts finished loading.")
+        self.delegate?.falconUsers(shouldBeUpdatedTo: self.users)
+    })
       
-      fetchAndObserveFalconUser(for: preparedNumber, asynchronously: true)
+    for preparedNumber in preparedNumbers {
+        fetchAndObserveFalconUser(for: preparedNumber, asynchronously: false)
     }
   }
   

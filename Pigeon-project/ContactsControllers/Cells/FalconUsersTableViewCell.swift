@@ -25,7 +25,7 @@ class FalconUsersTableViewCell: UITableViewCell {
   var title: UILabel = {
     var title = UILabel()
     title.translatesAutoresizingMaskIntoConstraints = false
-    title.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold)
+    title.font = UIFont(name: "Avenir-Heavy", size: 15)
     title.textColor = ThemeManager.currentTheme().generalTitleColor
     
     return title
@@ -34,7 +34,7 @@ class FalconUsersTableViewCell: UITableViewCell {
   var subtitle: UILabel = {
     var subtitle = UILabel()
     subtitle.translatesAutoresizingMaskIntoConstraints = false
-    subtitle.font = UIFont.systemFont(ofSize: 13)
+    subtitle.font = UIFont(name: "Avenir-Book", size: 15)
     subtitle.textColor = ThemeManager.currentTheme().generalSubtitleColor
     
     return subtitle
@@ -82,7 +82,7 @@ class FalconUsersTableViewCell: UITableViewCell {
   }
   
   func configureCell(for user: User) {
-    title.text = user.name ?? ""
+    title.text = user.phoneNumber ?? ""
     
     if let statusString = user.onlineStatus as? String {
       if statusString == statusOnline {

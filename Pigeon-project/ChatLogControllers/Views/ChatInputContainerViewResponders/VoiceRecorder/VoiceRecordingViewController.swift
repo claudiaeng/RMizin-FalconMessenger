@@ -346,18 +346,18 @@ class VoiceRecordingViewController: UIViewController {
 																					 name: AVAudioSession.routeChangeNotification,
 																					 object: nil)
 	}
-  @objc func background(_ notification: Notification) {
+  @objc func background(_ notification: NSNotification) {
     print("\(#function)")
     
   }
   
-  @objc func foreground(_ notification: Notification) {
+  @objc func foreground(_ notification: NSNotification) {
     print("\(#function)")
     
   }
   
   
-	@objc func routeChange(_ notification: Notification) {
+	@objc func routeChange(_ notification: NSNotification) {
 		//  print("\(#function)")
 
 		if let userInfo = (notification as NSNotification).userInfo {
