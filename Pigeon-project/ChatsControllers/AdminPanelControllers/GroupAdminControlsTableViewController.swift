@@ -296,7 +296,7 @@ class GroupAdminControlsTableViewController: UITableViewController {
     view.tintColor = ThemeManager.currentTheme().generalBackgroundColor
     if let headerTitle = view as? UITableViewHeaderFooterView {
       headerTitle.textLabel?.textColor = ThemeManager.currentTheme().generalSubtitleColor
-      headerTitle.textLabel?.font = UIFont(name: "Avenir-Book", size: 15)
+      headerTitle.textLabel?.font = UIFont(name: "Avenir-Book", size: 14)
     }
   }
   
@@ -452,7 +452,7 @@ class GroupAdminControlsTableViewController: UITableViewController {
       if members[indexPath.row].id == conversationAdminID {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 20))
         label.text = "admin"
-        label.font = UIFont(name: "Avenir-Book", size: 15)
+        label.font = UIFont(name: "Avenir-Book", size: 14)
         label.textColor = ThemeManager.currentTheme().generalSubtitleColor
 				cell.accessoryType = UITableViewCell.AccessoryType.none
         //cell.accessoryView = label

@@ -12,7 +12,7 @@ class OutgoingTextMessageCell: BaseMessageCell {
   
   let textView: FalconTextView = {
     let textView = FalconTextView()
-    textView.font = UIFont(name: "Avenir-Book", size: 15)
+    textView.font = UIFont(name: "Avenir-Book", size: 14)
     textView.backgroundColor = .clear
     textView.isEditable = false
     textView.isScrollEnabled = false

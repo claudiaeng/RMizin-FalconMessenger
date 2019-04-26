@@ -81,7 +81,7 @@ class UserInfoPhoneNumberTableViewCell: UITableViewCell {
   let contactStatus: UILabel = {
     let contactStatus = UILabel()
     contactStatus.sizeToFit()
-    contactStatus.font = UIFont(name: "Avenir-Book", size: 15)
+    contactStatus.font = UIFont(name: "Avenir-Book", size: 14)
     contactStatus.text = "This user not in your contacts"
     contactStatus.textColor = ThemeManager.currentTheme().generalSubtitleColor
     contactStatus.translatesAutoresizingMaskIntoConstraints = false
@@ -95,7 +95,7 @@ class UserInfoPhoneNumberTableViewCell: UITableViewCell {
     bio.numberOfLines = 0
     bio.textColor = ThemeManager.currentTheme().generalTitleColor
     bio.translatesAutoresizingMaskIntoConstraints = false
-    bio.font = UIFont(name: "Avenir-Book", size: 15)
+    bio.font = UIFont(name: "Avenir-Book", size: 14)
     
     return bio
   }()

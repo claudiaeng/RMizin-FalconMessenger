@@ -12,7 +12,7 @@ class InformationMessageCell: RevealableCollectionViewCell {
 
   let information: UILabel = {
     let information = UILabel()
-    information.font = UIFont(name: "Avenir-Book", size: 15)
+    information.font = UIFont(name: "Avenir-Book", size: 14)
     information.numberOfLines = 0
     information.textAlignment = .center
     information.textColor = ThemeManager.currentTheme().generalSubtitleColor

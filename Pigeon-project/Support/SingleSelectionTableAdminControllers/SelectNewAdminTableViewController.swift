@@ -87,7 +87,7 @@ class SelectNewAdminTableViewController: UITableViewController {
     if #available(iOS 11.0, *) {
       let rightBarButton = UIButton(type: .system)
       rightBarButton.setTitle(title, for: .normal)
-      rightBarButton.titleLabel?.font = UIFont(name: "Avenir-Book", size: 15)
+      rightBarButton.titleLabel?.font = UIFont(name: "Avenir-Book", size: 14)
       rightBarButton.addTarget(self, action: #selector(rightBarButtonTapped), for: .touchUpInside)
       navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBarButton)
     } else {
@@ -165,7 +165,7 @@ class SelectNewAdminTableViewController: UITableViewController {
     view.tintColor = ThemeManager.currentTheme().inputTextViewColor
     if let headerTitle = view as? UITableViewHeaderFooterView {
       headerTitle.textLabel?.textColor = ThemeManager.currentTheme().generalSubtitleColor
-      headerTitle.textLabel?.font = UIFont(name: "Avenir-Book", size: 15)
+      headerTitle.textLabel?.font = UIFont(name: "Avenir-Book", size: 14)
     }
   }
   

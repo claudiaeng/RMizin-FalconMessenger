@@ -48,15 +48,15 @@ class ContactsDetailController: UITableViewController {
     if indexPath.section == 0 {
       cell.imageView?.image = UIImage(named: "UserpicIcon")
       cell.textLabel?.text = contactName
-      cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 15)
+      cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 14)
     } else if indexPath.section == 1 {
       cell.imageView?.image = nil
       cell.textLabel?.text = contactPhoneNumbers[indexPath.row]
-      cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 15)
+      cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 14)
     } else {
       cell.textLabel?.textColor = FalconPalette.defaultBlue
       cell.textLabel?.text = "Invite to QUOTA"
-      cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 15)
+      cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 14)
     }
     return cell
   }

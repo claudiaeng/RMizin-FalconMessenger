@@ -23,7 +23,7 @@ class IncomingVoiceMessageCell: BaseVoiceMessageCell {
     playerView.playWidthAnchor.constant = 20
     playerView.playHeightAnchor.constant = -5
     playerView.timelabelLeadingAnchor.constant = playerView.playWidthAnchor.constant + playerView.playLeadingAnchor.constant
-    playerView.timerLabel.font = UIFont(name: "Avenir-Book", size: 15)
+    playerView.timerLabel.font = UIFont(name: "Avenir-Book", size: 14)
     playerView.play.setImage(UIImage(named: "pauseBlack"), for: .selected)
     playerView.play.setImage(UIImage(named: "playBlack"), for: .normal)
     playerView.timerLabel.textColor = .black

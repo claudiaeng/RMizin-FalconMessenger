@@ -44,13 +44,13 @@ class ViewPlaceholder: UIView {
     backgroundColor = .clear
     translatesAutoresizingMaskIntoConstraints = false
     
-    title.font = UIFont(name: "Avenir-Book", size: 15)
+    title.font = UIFont(name: "Avenir-Book", size: 14)
     title.textColor = ThemeManager.currentTheme().generalSubtitleColor
     title.textAlignment = .center
     title.numberOfLines = 0
     title.translatesAutoresizingMaskIntoConstraints = false
     
-    subtitle.font = UIFont(name: "Avenir-Book", size: 15)
+    subtitle.font = UIFont(name: "Avenir-Book", size: 14)
     subtitle.textColor = ThemeManager.currentTheme().generalSubtitleColor
     subtitle.textAlignment = .center
     subtitle.numberOfLines = 0

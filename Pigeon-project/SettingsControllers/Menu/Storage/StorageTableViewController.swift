@@ -49,7 +49,7 @@ class StorageTableViewController: UITableViewController {
       let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ?? UITableViewCell(style: .default, reuseIdentifier: identifier)
       
       cell.accessoryType = .disclosureIndicator
-      cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 15)
+      cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 14)
       cell.backgroundColor = view.backgroundColor
       
       if indexPath.row == 0 {

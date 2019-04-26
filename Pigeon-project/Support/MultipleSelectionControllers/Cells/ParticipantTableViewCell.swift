@@ -28,7 +28,7 @@ class ParticipantTableViewCell: UITableViewCell {
   var title: UILabel = {
     var title = UILabel()
     title.translatesAutoresizingMaskIntoConstraints = false
-    title.font = UIFont(name: "Avenir-Heavy", size: 15)
+    title.font = UIFont(name: "Avenir-Heavy", size: 14)
     title.textColor = ThemeManager.currentTheme().generalTitleColor
     
     return title
@@ -37,7 +37,7 @@ class ParticipantTableViewCell: UITableViewCell {
   var subtitle: UILabel = {
     var subtitle = UILabel()
     subtitle.translatesAutoresizingMaskIntoConstraints = false
-    subtitle.font = UIFont(name: "Avenir-Book", size: 15)
+    subtitle.font = UIFont(name: "Avenir-Book", size: 14)
     subtitle.textColor = ThemeManager.currentTheme().generalSubtitleColor
     
     return subtitle

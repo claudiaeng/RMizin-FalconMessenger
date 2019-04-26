@@ -50,8 +50,8 @@ class EnterPhoneNumberController: UIViewController {
     let rightBarButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(rightBarButtonDidTap))
     self.navigationItem.rightBarButtonItem = rightBarButton
     self.navigationItem.rightBarButtonItem?.isEnabled = false
-    rightBarButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 15)!], for: .disabled)
-    rightBarButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 15)!], for: .normal)
+    rightBarButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 14)!], for: .disabled)
+    rightBarButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 14)!], for: .normal)
   }
   
   

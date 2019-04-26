@@ -84,7 +84,7 @@ class ChatsTableViewController: UITableViewController {
     navigationItem.title = "Collaborate"
     self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedString.Key.foregroundColor: UIColor.black,
-         NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 15)!]
+         NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 14)!]
     //NotificationCenter.default.addObserver(self, selector: #selector(fetchData), name: SharePhotoController.updateFeedNotificationName, object: nil)
   }
   
@@ -166,7 +166,7 @@ class ChatsTableViewController: UITableViewController {
       searchBar?.delegate = self
       searchBar?.placeholder = "Search"
       searchBar?.searchBarStyle = .minimal
-      searchBar?.change(textFont: UIFont(name: "Avenir-Book", size: 15))
+      searchBar?.change(textFont: UIFont(name: "Avenir-Book", size: 14))
       searchBar?.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
       tableView.tableHeaderView = searchBar
 
@@ -313,7 +313,7 @@ class ChatsTableViewController: UITableViewController {
     
     if let headerTitle = view as? UITableViewHeaderFooterView {
       headerTitle.textLabel?.textColor = ThemeManager.currentTheme().generalSubtitleColor
-        headerTitle.textLabel?.font = UIFont(name: "Avenir-Book", size: 15)
+        headerTitle.textLabel?.font = UIFont(name: "Avenir-Book", size: 14)
     }
   }
   

@@ -23,7 +23,7 @@ class EnterVerificationContainerView: UIView {
   let subtitleText: UILabel = {
     let subtitleText = UILabel()
     subtitleText.translatesAutoresizingMaskIntoConstraints = false
-    subtitleText.font = UIFont(name: "Avenir-Book", size: 15)
+    subtitleText.font = UIFont(name: "Avenir-Book", size: 14)
     subtitleText.textAlignment = .center
     subtitleText.textColor = ThemeManager.currentTheme().generalTitleColor
     subtitleText.text = "We have sent you an SMS with the code."
@@ -33,7 +33,7 @@ class EnterVerificationContainerView: UIView {
   
   let verificationCode: UITextField = {
     let verificationCode = UITextField()
-    verificationCode.font = UIFont(name: "Avenir-Book", size: 15)
+    verificationCode.font = UIFont(name: "Avenir-Book", size: 14)
     verificationCode.translatesAutoresizingMaskIntoConstraints = false
     verificationCode.textAlignment = .center
     verificationCode.keyboardType = .numberPad
@@ -55,7 +55,7 @@ class EnterVerificationContainerView: UIView {
     resend.setTitle("Resend", for: .normal)
     resend.contentVerticalAlignment = .center
     resend.contentHorizontalAlignment = .center
-    resend.titleLabel?.font = UIFont(name: "Avenir-Book", size: 15)
+    resend.titleLabel?.font = UIFont(name: "Avenir-Book", size: 14)
     resend.setTitleColor(.black, for: .normal)
     resend.setTitleColor(ThemeManager.currentTheme().generalSubtitleColor, for: .highlighted)
     resend.setTitleColor(ThemeManager.currentTheme().generalSubtitleColor, for: .disabled)
@@ -73,7 +73,7 @@ class EnterVerificationContainerView: UIView {
   var timerLabel: UILabel = {
     var timerLabel = UILabel()
     timerLabel.textColor = ThemeManager.currentTheme().generalSubtitleColor
-    timerLabel.font = UIFont(name: "Avenir-Book", size: 15)
+    timerLabel.font = UIFont(name: "Avenir-Book", size: 14)
     timerLabel.translatesAutoresizingMaskIntoConstraints = false
     timerLabel.textAlignment = .center
     timerLabel.sizeToFit()

@@ -22,7 +22,7 @@ class OnboardingContainerView: UIView {
     let welcomeTitle = UILabel()
     welcomeTitle.translatesAutoresizingMaskIntoConstraints = false
     welcomeTitle.text = "Your Best Career Resource"
-    welcomeTitle.font = UIFont(name: "Avenir-Book", size: 15)
+    welcomeTitle.font = UIFont(name: "Avenir-Book", size: 14)
     welcomeTitle.textAlignment = .center
     welcomeTitle.textColor = ThemeManager.currentTheme().generalTitleColor
     return welcomeTitle
@@ -34,7 +34,7 @@ class OnboardingContainerView: UIView {
     startMessaging.setTitle("Start Networking", for: .normal)
     startMessaging.setTitleColor(.black, for: .normal)
     startMessaging.titleLabel?.backgroundColor = .clear
-    startMessaging.titleLabel?.font = UIFont(name: "Avenir-Heavy", size: 15)
+    startMessaging.titleLabel?.font = UIFont(name: "Avenir-Heavy", size: 14)
     startMessaging.addTarget(self, action: #selector(OnboardingController.startMessagingDidTap), for: .touchUpInside)
     
     return startMessaging

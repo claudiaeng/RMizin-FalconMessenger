@@ -35,7 +35,7 @@ extension SelectParticipantsViewController: UITableViewDelegate, UITableViewData
     view.tintColor = ThemeManager.currentTheme().inputTextViewColor
     if let headerTitle = view as? UITableViewHeaderFooterView {
       headerTitle.textLabel?.textColor = ThemeManager.currentTheme().generalSubtitleColor
-      headerTitle.textLabel?.font = UIFont(name: "Avenir-Book", size: 15)
+      headerTitle.textLabel?.font = UIFont(name: "Avenir-Book", size: 14)
     }
   }
   

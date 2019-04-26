@@ -444,12 +444,12 @@ extension UINavigationItem {
     let one = UILabel()
     one.text = title
     one.textColor = ThemeManager.currentTheme().generalTitleColor
-    one.font = UIFont(name: "Avenir-Book", size: 15)
+    one.font = UIFont(name: "Avenir-Book", size: 14)
     one.sizeToFit()
     
     let two = UILabel()
     two.text = subtitle
-    two.font = UIFont(name: "Avenir-Book", size: 15)
+    two.font = UIFont(name: "Avenir-Book", size: 14)
     two.textAlignment = .center
     two.textColor = ThemeManager.currentTheme().generalSubtitleColor
     two.sizeToFit()

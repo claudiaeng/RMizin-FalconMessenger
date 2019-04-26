@@ -47,7 +47,7 @@ class NavigationItemActivityIndicator: NSObject {
     
   
     titleLabel.text = title.rawValue
-    titleLabel.font = UIFont(name: "Avenir-Book", size: 15)
+    titleLabel.font = UIFont(name: "Avenir-Book", size: 14)
     titleLabel.textColor = color
     
     let fittingSize = titleLabel.sizeThatFits(CGSize(width:200.0, height: activityIndicatorView.frame.size.height))

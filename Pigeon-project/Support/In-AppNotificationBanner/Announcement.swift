@@ -31,7 +31,7 @@ public struct Announcement {
 public struct FontList {
   
   public struct Announcement {
-    public static var title = UIFont(name: "Avenir-Heavy", size: 15)
-    public static var subtitle = UIFont(name: "Avenir-Book", size: 15)
+    public static var title = UIFont(name: "Avenir-Heavy", size: 14)
+    public static var subtitle = UIFont(name: "Avenir-Book", size: 14)
   }
 }

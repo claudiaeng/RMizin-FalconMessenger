@@ -14,12 +14,13 @@ class AuthVerificationController: EnterVerificationCodeController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setRightBarButton(with: "Next")
-    self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 15)!], for: .normal)
+    self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 14)!], for: .normal)
+    self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 14)!], for: .selected)
     
     //navigationItem.title = "Profile"
     self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedString.Key.foregroundColor: UIColor.black,
-         NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 15)!]
+         NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 14)!]
   }
   
   override func rightBarButtonDidTap() {

@@ -42,7 +42,7 @@ class GroupProfileTableHeaderContainer: UIView {
   var name: PasteRestrictedTextField = {
     let name = PasteRestrictedTextField()
     name.enablesReturnKeyAutomatically = true
-    name.font = UIFont(name: "Avenir-Book", size: 15)
+    name.font = UIFont(name: "Avenir-Book", size: 14)
     name.translatesAutoresizingMaskIntoConstraints = false
     name.textAlignment = .center
 		name.attributedPlaceholder = NSAttributedString(string:"Group name", attributes:[NSAttributedString.Key.foregroundColor: ThemeManager.currentTheme().generalSubtitleColor])

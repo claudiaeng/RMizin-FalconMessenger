@@ -40,7 +40,7 @@ class BaseMessageCell: RevealableCollectionViewCell {
   var deliveryStatus: UILabel = {
     var deliveryStatus = UILabel()
     deliveryStatus.text = "status"
-    deliveryStatus.font = UIFont(name: "Avenir-Book", size: 10)
+    deliveryStatus.font = UIFont(name: "Avenir-Book", size: 9)
     deliveryStatus.textColor =  ThemeManager.currentTheme().generalSubtitleColor
     deliveryStatus.isHidden = true
     deliveryStatus.textAlignment = .right
@@ -50,7 +50,7 @@ class BaseMessageCell: RevealableCollectionViewCell {
   
   let nameLabel: UILabel = {
     let nameLabel = UILabel()
-    nameLabel.font = UIFont(name: "Avenir-Book", size: 15)
+    nameLabel.font = UIFont(name: "Avenir-Book", size: 14)
     nameLabel.numberOfLines = 1
     nameLabel.backgroundColor = .clear
     nameLabel.textColor = FalconPalette.defaultBlue

@@ -34,7 +34,7 @@ class SelectCountryCodeController: UITableViewController {
     configureTableView()
     self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedString.Key.foregroundColor: UIColor.black,
-         NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 15)!]
+         NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 14)!]
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +60,7 @@ class SelectCountryCodeController: UITableViewController {
     searchBar.backgroundColor = ThemeManager.currentTheme().generalBackgroundColor
     searchBar.keyboardAppearance = ThemeManager.currentTheme().keyboardAppearance
     searchBar.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
-    searchBar.change(textFont: UIFont(name: "Avenir-Book", size: 15))
+    searchBar.change(textFont: UIFont(name: "Avenir-Book", size: 14))
     
 
     }
@@ -94,7 +94,7 @@ extension SelectCountryCodeController {
     
     let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ?? UITableViewCell(style: .default, reuseIdentifier: identifier)
     cell.backgroundColor = ThemeManager.currentTheme().generalBackgroundColor
-    cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 15)
+    cell.textLabel?.font = UIFont(name: "Avenir-Book", size: 14)
     
     let countryName = filteredCountries[indexPath.row]["name"]!
     let countryDial = " " + filteredCountries[indexPath.row]["dial_code"]!

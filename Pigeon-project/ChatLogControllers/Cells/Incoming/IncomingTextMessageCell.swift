@@ -13,7 +13,7 @@ class IncomingTextMessageCell: BaseMessageCell {
   
   let textView: FalconTextView = {
     let textView = FalconTextView()
-    textView.font = UIFont(name: "Avenir-Book", size: 15)
+    textView.font = UIFont(name: "Avenir-Book", size: 14)
 		textView.textColor = .darkText
 		textView.textContainerInset = UIEdgeInsets(top: incomingTextViewTopInset,
 																							 left: incomingTextViewLeftInset,
