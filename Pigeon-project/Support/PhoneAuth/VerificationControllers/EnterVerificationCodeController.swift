@@ -143,23 +143,24 @@ class EnterVerificationCodeController: UIViewController {
                 return
             }
             
-            AppUtility.lockOrientation(.portrait)
-            //destination.userProfileContainerView.phone.text = self.enterVerificationContainerView.titleNumber.text
-            //destination.checkIfUserDataExists(completionHandler: { (isCompleted) in
-            //guard isCompleted else {ARSLineProgress.showFail(); return }
-            ARSLineProgress.hide()
-            guard self.navigationController != nil else { return }
-            if !(self.navigationController!.topViewController!.isKind(of: UserProfileController.self)) {
-                
-
-                let tabBarController = TabBarController()
-                self.window = UIWindow(frame: UIScreen.main.bounds)
-                self.window?.rootViewController = tabBarController
-                self.window?.makeKeyAndVisible()
-                self.window?.backgroundColor = ThemeManager.currentTheme().generalBackgroundColor
-                tabBarController.presentOnboardingController()
+            Auth.auth().signInAndRetrieveData(with: credential) { (_, error) in
+                if error != nil {
+                    ARSLineProgress.hide()
+                    basicErrorAlertWith(title: "Error", message: error?.localizedDescription ?? "Oops! Something happened, try again later.", controller: self)
+                    return
+                }
+                let destination = UserProfileController()
+                AppUtility.lockOrientation(.portrait)
+                destination.userProfileContainerView.phone.text = self.enterVerificationContainerView.titleNumber.text
+                destination.checkIfUserDataExists(completionHandler: { (isCompleted) in
+                    guard isCompleted else {ARSLineProgress.showFail(); return }
+                    ARSLineProgress.hide()
+                    guard self.navigationController != nil else { return }
+                    if !(self.navigationController!.topViewController!.isKind(of: UserProfileController.self)) {
+                        self.navigationController?.pushViewController(destination, animated: true)
+                    }
+                })
             }
-            //})
         }
-    }
+}
 }

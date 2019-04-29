@@ -61,6 +61,12 @@ class ChatsTableViewController: UITableViewController {
         navigationController?.pushViewController(destination, animated: true)
     }
   
+    @objc fileprivate func requests() {
+      let destination = RequestViewController()
+        destination.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(destination, animated: true)
+    }
+    
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -132,6 +138,11 @@ class ChatsTableViewController: UITableViewController {
     navigationItem.leftBarButtonItem = editButtonItem
     let newChatBarButton =  UIBarButtonItem(image: UIImage(named: "composeButton"), style: .done, target: self, action: #selector(contacts))
     navigationItem.rightBarButtonItem = newChatBarButton
+    
+    let requestsButton = UIBarButtonItem(image: UIImage(named: "composeButton"), style: .done, target: self, action: #selector(requests))
+    
+    navigationItem.leftBarButtonItem = requestsButton
+    
     extendedLayoutIncludesOpaqueBars = true
     edgesForExtendedLayout = UIRectEdge.top
     tableView.separatorStyle = .none

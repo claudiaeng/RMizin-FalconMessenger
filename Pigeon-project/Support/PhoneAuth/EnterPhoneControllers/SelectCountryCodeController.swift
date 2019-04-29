@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 protocol CountryPickerDelegate: class {
   func countryPicker(_ picker: SelectCountryCodeController, didSelectCountryWithName name: String, code: String, dialCode: String)
 }

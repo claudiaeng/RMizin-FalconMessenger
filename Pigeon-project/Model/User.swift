@@ -21,7 +21,7 @@ class User: NSObject {
   
   init(dictionary: [String: AnyObject]) {
     id = dictionary["id"] as? String
-    name = dictionary["name"] as? String
+    name = dictionary["userName"] as? String
     bio = dictionary["bio"] as? String
     photoURL = dictionary["photoURL"] as? String
     thumbnailPhotoURL = dictionary["thumbnailPhotoURL"] as? String

@@ -52,6 +52,9 @@ class EnterPhoneNumberController: UIViewController {
     self.navigationItem.rightBarButtonItem?.isEnabled = false
     rightBarButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 14)!], for: .disabled)
     rightBarButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 14)!], for: .normal)
+    self.navigationController?.navigationBar.titleTextAttributes =
+        [NSAttributedString.Key.foregroundColor: UIColor.black,
+         NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 14)!]
   }
   
   

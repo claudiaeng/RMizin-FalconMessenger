@@ -12,6 +12,8 @@ import ARSLineProgress
 
 class UserProfileController: UIViewController {
   
+  var window: UIWindow?
+    
   let userProfileContainerView = UserProfileContainerView()
   let avatarOpener = AvatarOpener()
   let userProfileDataDatabaseUpdater = UserProfileDataDatabaseUpdater()
@@ -32,16 +34,22 @@ class UserProfileController: UIViewController {
       let rightBarButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(rightBarButtonDidTap))
       self.navigationItem.rightBarButtonItem = rightBarButton
       self.title = "Profile"
-      self.navigationItem.setHidesBackButton(true, animated: true)
+      self.navigationItem.setHidesBackButton(false, animated: true)
     }
   
     fileprivate func configureContainerView() {
+        userProfileContainerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80).isActive = true
+        userProfileContainerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        userProfileContainerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        /*
       userProfileContainerView.frame = view.bounds
         if #available(iOS 11.0, *) {
             userProfileContainerView.insetsLayoutMarginsFromSafeArea = true
         } else {
             // Fallback on earlier versions
         }
+ */
       userProfileContainerView.bioPlaceholderLabel.isHidden = !userProfileContainerView.bio.text.isEmpty
       userProfileContainerView.profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openUserProfilePicture)))
       userProfileContainerView.bio.delegate = self
@@ -78,7 +86,13 @@ class UserProfileController: UIViewController {
 extension UserProfileController {
   
   @objc func rightBarButtonDidTap () {
-   userProfileContainerView.name.resignFirstResponder()
+    let tabBarController = TabBarController()
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window?.rootViewController = tabBarController
+    window?.makeKeyAndVisible()
+    window?.backgroundColor = ThemeManager.currentTheme().generalBackgroundColor
+    tabBarController.presentOnboardingController()
+    
     if userProfileContainerView.name.text?.count == 0 ||
        userProfileContainerView.name.text!.trimmingCharacters(in: .whitespaces).isEmpty {
        userProfileContainerView.name.shake()
