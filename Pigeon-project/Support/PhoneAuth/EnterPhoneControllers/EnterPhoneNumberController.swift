@@ -55,6 +55,10 @@ class EnterPhoneNumberController: UIViewController {
     self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedString.Key.foregroundColor: UIColor.black,
          NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 14)!]
+
+        [NSAttributedString.Key.foregroundColor: UIColor.black,
+         NSAttributedString.Key.font: UIFont(name: "Avenir-Book", size: 14)!]
+    
   }
   
   

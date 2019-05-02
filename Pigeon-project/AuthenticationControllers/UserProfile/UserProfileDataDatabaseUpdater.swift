@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 class UserProfileDataDatabaseUpdater: NSObject {
   
@@ -16,6 +17,8 @@ class UserProfileDataDatabaseUpdater: NSObject {
     
     guard let currentUserID = Auth.auth().currentUser?.uid else { return }
     let userReference = Database.database().reference().child("users").child(currentUserID)
+    
+    let firRef = Firestore.firestore().collection("users").document(currentUserID)
     
     let thumbnailImage = createImageThumbnail(image)
     var images = [(image: UIImage, quality: CGFloat, key: String)]()

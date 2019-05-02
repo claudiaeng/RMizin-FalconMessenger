@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import ARSLineProgress
+import FirebaseFirestore
 
 
 class EnterVerificationCodeController: UIViewController {
@@ -99,6 +100,12 @@ class EnterVerificationCodeController: UIViewController {
                     ARSLineProgress.hide()
                     basicErrorAlertWith(title: "Error", message: error?.localizedDescription ?? "Number changing process failed. Please try again later.", controller: self)
                     return
+                }
+                
+                Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid).setData(["phoneNumber" :self.enterVerificationContainerView.titleNumber.text!]) { error in
+                    if error != nil {
+                        print(error as Any)
+                    }
                 }
                 
                 ARSLineProgress.showSuccess()

@@ -28,12 +28,13 @@ extension AccountSettingsController: UITextViewDelegate {
   }
   
   func tableHeaderHeight() -> CGFloat {
-    return 190 + estimateFrameForText(userProfileContainerView.bio.text, width: userProfileContainerView.bio.textContainer.size.width - 10).height
+    return 260 + estimateFrameForText(userProfileContainerView.bio.text, width: userProfileContainerView.bio.textContainer.size.width - 10).height
   }
   
   func textViewDidBeginEditing(_ textView: UITextView) {
    setEditingBarButtons()
    userProfileContainerView.bioPlaceholderLabel.isHidden = true
+   userProfileContainerView.cityPlaceholderLabel.isHidden = true
    userProfileContainerView.countLabel.text = "\(userProfileContainerView.bioMaxCharactersCount - userProfileContainerView.bio.text.count)"
    userProfileContainerView.countLabel.isHidden = false
   }
@@ -41,14 +42,17 @@ extension AccountSettingsController: UITextViewDelegate {
   func textViewDidEndEditing(_ textView: UITextView) {
      userProfileContainerView.bioPlaceholderLabel.isHidden = !textView.text.isEmpty
      userProfileContainerView.countLabel.isHidden = true
+    userProfileContainerView.cityPlaceholderLabel.isHidden = !textView.text.isEmpty
   }
   
   func textViewDidChange(_ textView: UITextView) {
     view.setNeedsLayout()
     if textView.isFirstResponder && textView.text == "" {
       userProfileContainerView.bioPlaceholderLabel.isHidden = true
+         userProfileContainerView.cityPlaceholderLabel.isHidden = true
     } else {
       userProfileContainerView.bioPlaceholderLabel.isHidden = !textView.text.isEmpty
+        userProfileContainerView.cityPlaceholderLabel.isHidden = !textView.text.isEmpty
     }
      userProfileContainerView.countLabel.text = "\(userProfileContainerView.bioMaxCharactersCount - textView.text.count)"
   }
@@ -92,6 +96,8 @@ extension AccountSettingsController { /* user name editing */
     
     userProfileContainerView.name.text = currentName
     userProfileContainerView.bio.text = currentBio
+    userProfileContainerView.city.text = currentCity
+
     userProfileContainerView.name.resignFirstResponder()
     userProfileContainerView.bio.resignFirstResponder()
     navigationItem.leftBarButtonItem = nil
@@ -113,6 +119,7 @@ extension AccountSettingsController { /* user name editing */
     configureNavigationBarDefaultRightBarButton()
     userProfileContainerView.name.resignFirstResponder()
     userProfileContainerView.bio.resignFirstResponder()
+    userProfileContainerView.city.resignFirstResponder()
     
     
     let userNameReference = Database.database().reference().child("users").child(Auth.auth().currentUser!.uid)
@@ -123,7 +130,17 @@ extension AccountSettingsController { /* user name editing */
         ARSLineProgress.showFail()
         self.view.isUserInteractionEnabled = true
       }
-      
+                                            
+    let firRef = Firestore.firestore().collection("users").document(Auth.auth().currentUser!.uid)
+                                            firRef.updateData(["userName": self.userProfileContainerView.name.text!, "city": self.userProfileContainerView.city.text!,
+                                                               "bio": self.userProfileContainerView.bio.text!], completion:
+        { (err) in
+            if error != nil {
+                ARSLineProgress.showFail()
+                self.view.isUserInteractionEnabled = true
+            }
+    })
+                                            
       ARSLineProgress.showSuccess()
       self.view.isUserInteractionEnabled = true
     }

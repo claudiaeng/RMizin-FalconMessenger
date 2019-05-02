@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import ARSLineProgress
+import FirebaseFirestore
+
 
 class AccountSettingsController: UITableViewController {
 
@@ -19,8 +21,6 @@ class AccountSettingsController: UITableViewController {
   let accountSettingsCellId = "userProfileCell"
 
   var firstSection = [( icon: UIImage(named: "Notification") , title: "Notifications and Sounds" ),
-                      ( icon: UIImage(named: "Privacy") , title: "Privacy and Security" ),
-                      ( icon: UIImage(named: "ChangeNumber") , title: "Change Number"),
                       ( icon: UIImage(named: "DataStorage") , title: "Data and Storage")]
   
   var secondSection = [( icon: UIImage(named: "Logout") , title: "Log Out")]
@@ -29,12 +29,17 @@ class AccountSettingsController: UITableViewController {
   let doneBarButton = UIBarButtonItem(title: "Done", style: .done, target: self, action:  #selector(doneBarButtonPressed))
   var currentName = String()
   var currentBio = String()
-
+  var currentCity = String()
   
   override func viewDidLoad() {
      super.viewDidLoad()
     
     title = "Settings"
+    if #available(iOS 11.0, *) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    } else {
+        // Fallback on earlier versions
+    }
     extendedLayoutIncludesOpaqueBars = true
     edgesForExtendedLayout = UIRectEdge.top
     tableView = UITableView(frame: tableView.frame, style: .grouped)
@@ -97,6 +102,7 @@ class AccountSettingsController: UITableViewController {
     userProfileContainerView.profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openUserProfilePicture)))
     userProfileContainerView.bio.delegate = self
     userProfileContainerView.name.delegate = self
+    userProfileContainerView.city.delegate = self
   }
   
   func configureNavigationBarDefaultRightBarButton() {
@@ -189,6 +195,18 @@ class AccountSettingsController: UITableViewController {
           self.currentBio = bio
         }
       })
+    
+        let cityRef = Firestore.firestore().collection("users").document(currentUser).addSnapshotListener { (doc, err) in
+            if err != nil {
+                print(err as Any)
+            } else {
+                if let city = doc?.data() {
+                    self.userProfileContainerView.city.text = city["city"] as? String
+                    self.userProfileContainerView.cityPlaceholderLabel.isHidden = !self.userProfileContainerView.city.text.isEmpty
+                    self.currentCity = (city["city"] as? String)!
+                }
+            }
+        }
       
       let phoneNumberReference = Database.database().reference().child("users").child(currentUser).child("phoneNumber")
       phoneNumberReference.observe(.value, with: { (snapshot) in
@@ -282,13 +300,13 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
         navigationController?.pushViewController(destination, animated: true)
       }
       
-      if indexPath.row == 1 {
+      if indexPath.row == 2 {
         let destination = PrivacyTableViewController()
         destination.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(destination, animated: true)
       }
       
-      if indexPath.row == 2 {
+      if indexPath.row == 3 {
          AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
         let destination = ChangePhoneNumberController()
         //let destination = UINavigationController(rootViewController: controller)
@@ -299,7 +317,7 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
         navigationController?.pushViewController(destination, animated: true)
       }
       
-      if indexPath.row == 3 {
+      if indexPath.row == 1 {
         let destination = StorageTableViewController()
         destination.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(destination, animated: true)
@@ -317,7 +335,7 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
   }
   
   override  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 50
+    return 55
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

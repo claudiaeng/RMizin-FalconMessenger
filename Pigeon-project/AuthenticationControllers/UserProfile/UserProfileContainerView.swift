@@ -38,7 +38,6 @@ class UserProfileContainerView: UIView {
     profileImageView.layer.borderColor = ThemeManager.currentTheme().inputTextViewColor.cgColor
     profileImageView.layer.cornerRadius = 48
     profileImageView.isUserInteractionEnabled = true
-    
     return profileImageView
   }()
   
@@ -84,6 +83,18 @@ class UserProfileContainerView: UIView {
    
     return phone
   }()
+    
+    let cityPlaceholderLabel: UILabel = {
+        let bioPlaceholderLabel = UILabel()
+        bioPlaceholderLabel.text = "City"
+        bioPlaceholderLabel.sizeToFit()
+        bioPlaceholderLabel.textAlignment = .center
+        bioPlaceholderLabel.backgroundColor = .clear
+        bioPlaceholderLabel.translatesAutoresizingMaskIntoConstraints = false
+        bioPlaceholderLabel.textColor = ThemeManager.currentTheme().generalSubtitleColor
+        
+        return bioPlaceholderLabel
+    }()
   
   let bioPlaceholderLabel: UILabel = {
     let bioPlaceholderLabel = UILabel()
@@ -106,6 +117,27 @@ class UserProfileContainerView: UIView {
     
     return userData
   }()
+    
+    let city: BioTextView = {
+        let bio = BioTextView()
+        bio.translatesAutoresizingMaskIntoConstraints = false
+        bio.layer.cornerRadius = 28
+        bio.layer.borderWidth = 1
+        bio.textAlignment = .center
+        bio.font = UIFont(name: "Avenir-Book", size: 14)
+        bio.isScrollEnabled = false
+        bio.textContainerInset = UIEdgeInsets(top: 15, left: 35, bottom: 15, right: 35)
+        bio.keyboardAppearance = ThemeManager.currentTheme().keyboardAppearance
+        bio.backgroundColor = .clear
+        bio.textColor = ThemeManager.currentTheme().generalTitleColor
+        bio.indicatorStyle = ThemeManager.currentTheme().scrollBarStyle
+        bio.layer.borderColor = ThemeManager.currentTheme().inputTextViewColor.cgColor
+        bio.keyboardAppearance = ThemeManager.currentTheme().keyboardAppearance
+        bio.textContainer.lineBreakMode = .byTruncatingTail
+        bio.returnKeyType = .done
+        
+        return bio
+    }()
 
   let bio: BioTextView = {
     let bio = BioTextView()
@@ -132,13 +164,13 @@ class UserProfileContainerView: UIView {
     let countLabel = UILabel()
     countLabel.translatesAutoresizingMaskIntoConstraints = false
     countLabel.sizeToFit()
-    countLabel.textColor = ThemeManager.currentTheme().generalSubtitleColor
+    countLabel.textColor = UIColor.white
     countLabel.isHidden = true
-    
+    countLabel.font = UIFont(name: "Avenir-Book", size: 14)
     return countLabel
   }()
   
-  let bioMaxCharactersCount = 70
+  let bioMaxCharactersCount = 50
 
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -149,10 +181,12 @@ class UserProfileContainerView: UIView {
     addSubview(profileImageView)
     addSubview(userData)
     addSubview(bio)
+    addSubview(city)
     addSubview(countLabel)
     userData.addSubview(name)
     userData.addSubview(phone)
     bio.addSubview(bioPlaceholderLabel)
+    city.addSubview(cityPlaceholderLabel)
   
       NSLayoutConstraint.activate([
         profileImageView.topAnchor.constraint(equalTo: topAnchor, constant: 30),
@@ -178,12 +212,15 @@ class UserProfileContainerView: UIView {
         phone.rightAnchor.constraint(equalTo: userData.rightAnchor, constant: 0),
         phone.heightAnchor.constraint(equalToConstant: 50),
         
-        bio.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 10),
+        city.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 10),
+        bio.topAnchor.constraint(equalTo: city.bottomAnchor, constant: 10),
 
         countLabel.widthAnchor.constraint(equalToConstant: 30),
         countLabel.heightAnchor.constraint(equalToConstant: 30),
         countLabel.rightAnchor.constraint(equalTo: bio.rightAnchor, constant: -5),
         countLabel.bottomAnchor.constraint(equalTo: bio.bottomAnchor, constant: -5),
+        cityPlaceholderLabel.centerXAnchor.constraint(equalTo: city.centerXAnchor, constant: 0),
+        cityPlaceholderLabel.centerYAnchor.constraint(equalTo: city.centerYAnchor, constant: 0),
         
         bioPlaceholderLabel.centerXAnchor.constraint(equalTo: bio.centerXAnchor, constant: 0),
         bioPlaceholderLabel.centerYAnchor.constraint(equalTo: bio.centerYAnchor, constant: 0),
@@ -191,13 +228,16 @@ class UserProfileContainerView: UIView {
     
     bioPlaceholderLabel.font = UIFont(name: "Avenir-Book", size: 14)
     bioPlaceholderLabel.isHidden = !bio.text.isEmpty
-   
+    cityPlaceholderLabel.font = UIFont(name: "Avenir-Book", size: 14)
+    cityPlaceholderLabel.isHidden = !city.text.isEmpty
     
     if #available(iOS 11.0, *) {
       NSLayoutConstraint.activate([
         profileImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
         bio.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
         bio.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
+        city.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
+        city.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
         userData.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
       ])
     } else {
@@ -205,6 +245,8 @@ class UserProfileContainerView: UIView {
         profileImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
         bio.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
         bio.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+        city.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+        city.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
         userData.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
       ])
     }

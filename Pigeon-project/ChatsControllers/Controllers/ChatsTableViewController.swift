@@ -136,10 +136,10 @@ class ChatsTableViewController: UITableViewController {
     tableView.indicatorStyle = ThemeManager.currentTheme().scrollBarStyle
     tableView.backgroundColor = view.backgroundColor
     navigationItem.leftBarButtonItem = editButtonItem
-    let newChatBarButton =  UIBarButtonItem(image: UIImage(named: "composeButton"), style: .done, target: self, action: #selector(contacts))
+    let newChatBarButton =  UIBarButtonItem(image: UIImage(named: "pen"), style: .done, target: self, action: #selector(contacts))
     navigationItem.rightBarButtonItem = newChatBarButton
     
-    let requestsButton = UIBarButtonItem(image: UIImage(named: "composeButton"), style: .done, target: self, action: #selector(requests))
+    let requestsButton = UIBarButtonItem(image: UIImage(named: "mailbox"), style: .done, target: self, action: #selector(requests))
     
     navigationItem.leftBarButtonItem = requestsButton
     

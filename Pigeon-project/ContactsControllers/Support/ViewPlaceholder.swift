@@ -28,7 +28,7 @@ enum ViewPlaceholderTitle: String {
 enum ViewPlaceholderSubtitle: String {
   case denied = "Please go to your iPhone Settings –– Privacy –– Contacts. Then select ON for QUOTA."
   case empty = "You can invite your friends to QUOTA in the contacts tab of the profile screen."
-  case emptyChat = "You can select somebody in Contacts, and send your first message."
+  case emptyChat = "Make new connections in the Connect tab."
 }
 
 class ViewPlaceholder: UIView {
